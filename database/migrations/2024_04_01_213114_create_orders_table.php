@@ -10,7 +10,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('total');
+            $table->decimal('total', 10, 2)->default(0.00);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
